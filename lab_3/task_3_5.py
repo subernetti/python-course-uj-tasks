@@ -21,7 +21,7 @@ miarkaLiczby = "0"
 
 for i in range(1, x + 1):
     miarkaKropki += "....|"
-    miarkaLiczby += f"{i:>5}"  # dosuwa liczbę do prawej na 5 znakach (4 kropki + 1 kreska)
+    miarkaLiczby += f"{i:>5}"  
 
 pelnyString = miarkaKropki + "\n" + miarkaLiczby
 print(pelnyString)
