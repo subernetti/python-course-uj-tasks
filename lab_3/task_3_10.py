@@ -3,6 +3,27 @@
 # na liczby arabskie (podać kilka sposobów tworzenia takiego słownika). Mile widziany kod tłumaczący 
 # całą liczbę [funkcja roman2int()].
 
+### Sposoby tworzenia slownikow ###
+
+# Literal slownikowy
+# roman_map = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+
+# Konstruktor dict()
+# roman_map = dict(I=1, V=5, X=10, L=50, C=100, D=500, M=1000)
+
+# Funkcja zip() na dwoch sekwencjach
+# keys = "IVXLCDM"
+# values = [1, 5, 10, 50, 100, 500, 1000]
+# roman_map = dict(zip(keys, values))
+
+# Konstruktor dict() z krotek
+# roman_map = dict([('I', 1), ('V', 5), ('X', 10), ('L', 50), ('C', 100), ('D', 500), ('M', 1000)])
+
+# Slownik skladany
+# roman_map = {k: v for k, v in zip("IVXLCDM", [1, 5, 10, 50, 100, 500, 1000])}
+
+
+# Funkcja roman2int()
 def roman2int(input: str) -> int:
     roman_map = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
     total = 0
