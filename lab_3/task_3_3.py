@@ -14,4 +14,3 @@ j = 0
 while j < 31:
     if(j%3 != 0): print(j)
     j += 1
-    
