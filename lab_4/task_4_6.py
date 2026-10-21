@@ -18,6 +18,8 @@ def sum_seq(sequence):
 
 
 seq = [1, 2, [3, 4], (5, [6, 7]), 8]
+seqq = [1,[1,[1,[1,[1]]]]]
 
+assert sum_seq(seqq) == 5
 assert sum_seq(seq) == 36
 print(sum_seq(seq))
