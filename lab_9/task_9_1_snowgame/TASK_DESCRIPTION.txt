@@ -1,0 +1,9 @@
+ZADANIE 9.1 (PADAJĄCY ŚNIEG)
+
+Zaimplementować prostą grę o topieniu padającego śniegu. Przy górnej krawędzi ekranu pojawiają 
+się losowo płatki śniegu, które spadają w dół ruchem jednostajnym. Zadaniem gracza jest topienie 
+płatków śniegu przez klikanie na nie myszą. Celem gry jest niedopuszczenie, aby jakiś płatek śniegu 
+dotarł do dolnej krawędzi ekranu.
+
+Można rozważyć wariant gry, w którym tworzą się zaspy śniegu, a gra kończy się, gdy zaspa urośnie 
+do górnej krawędzi ekranu.
