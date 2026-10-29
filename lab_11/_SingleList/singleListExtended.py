@@ -1,4 +1,4 @@
-# Zadanie 11.1
+# Zadanie 11.1 / 11.2
 # Do klasy SingleList dodać nowe metody.
 
 class Node:
@@ -18,7 +18,7 @@ class Node:
 
     def __ne__(self, other):
         if not isinstance(other, Node):
-            return False    
+            return True   
         return not self == other
     
 
@@ -111,3 +111,64 @@ class SingleList:
         self.head = None
         self.tail = None
         self.length = 0
+
+    def search(self, data):    # klasy O(n)
+        # Zwraca łącze do węzła o podanym kluczu lub None.
+        current = self.head
+        if current.data == data:
+            return self.head
+        while current.next != self.tail:
+            if current.next.data == data:
+                return current.next
+            current += current.next
+        return None
+            
+
+    def find_min(self):    # klasy O(n)
+        # Zwraca łącze do węzła z najmniejszym kluczem lub None dla pustej listy.
+        if self.is_empty():
+            return None
+        
+        min_node = self.head
+        current = self.head.next
+
+        while current is not None:
+            if current.data < min_node.data:
+                min_node = current
+            current = current.next
+
+        return min_node
+
+
+    def find_max(self):    # klasy O(n)
+        # Zwraca łącze do węzła z największym kluczem lub None dla pustej listy.
+        if self.is_empty():
+            return None
+        
+        max_node = self.head
+        current = self.head.next
+
+        while current is not None:
+            if current.data > max_node.data:
+                max_node = current
+            current = current.next
+
+        return max_node
+
+    def reverse(self):    # klasy O(n)
+        # Odwracanie kolejności węzłów na liście.
+        if self.is_empty() or self.head == self.tail:
+            return None
+        
+        prev_node = None
+        current = self.head
+
+        self.tail = self.head
+
+        while current is not None: 
+            next_node = current.next
+            current.next = prev_node
+            prev_node = current
+            current = next_node
+        
+        self.head = prev_node

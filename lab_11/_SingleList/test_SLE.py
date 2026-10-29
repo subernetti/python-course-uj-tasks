@@ -90,3 +90,81 @@ def test_clear():
     assert alist.length == 0
     assert alist.head is None
     assert alist.tail is None
+
+def test_find_min():
+    alist = SingleList()
+    
+    # 1. Pusta lista
+    assert alist.find_min() is None
+    
+    # 2. Lista z kilkoma elementami
+    alist.insert_tail(Node(15))
+    alist.insert_tail(Node(5))
+    alist.insert_tail(Node(20))
+    alist.insert_tail(Node(2))
+    alist.insert_tail(Node(10))
+    
+    min_node = alist.find_min()
+    assert min_node.data == 2
+    
+    # 3. Minimum na samym początku
+    blist = SingleList()
+    blist.insert_tail(Node(1))
+    blist.insert_tail(Node(5))
+    assert blist.find_min().data == 1
+
+def test_find_max():
+    alist = SingleList()
+    
+    # 1. Pusta lista
+    assert alist.find_max() is None
+    
+    # 2. Lista z kilkoma elementami
+    alist.insert_tail(Node(15))
+    alist.insert_tail(Node(5))
+    alist.insert_tail(Node(25))
+    alist.insert_tail(Node(2))
+    alist.insert_tail(Node(10))
+    
+    max_node = alist.find_max()
+    assert max_node.data == 25
+    
+    # 3. Maksimum na samym końcu
+    blist = SingleList()
+    blist.insert_tail(Node(5))
+    blist.insert_tail(Node(100))
+    assert blist.find_max().data == 100
+
+def test_reverse():
+    alist = SingleList()
+    
+    # 1. Odwracanie pustej listy (nie powinno rzucić błędu)
+    alist.reverse()
+    assert alist.is_empty() is True
+    
+    # 2. Odwracanie listy 1-elementowej
+    alist.insert_tail(Node(10))
+    alist.reverse()
+    assert alist.head.data == 10
+    assert alist.tail.data == 10
+    
+    # 3. Odwracanie standardowej listy
+    blist = SingleList()
+    blist.insert_tail(Node(1))
+    blist.insert_tail(Node(2))
+    blist.insert_tail(Node(3))
+    blist.insert_tail(Node(4))
+    
+    blist.reverse()
+    
+    # Sprawdzamy wskaźniki head i tail
+    assert blist.head.data == 4
+    assert blist.tail.data == 1
+    
+    # Sprawdzamy wewnętrzne powiązania (powinno być 4 -> 3 -> 2 -> 1 -> None)
+    assert blist.head.next.data == 3
+    assert blist.head.next.next.data == 2
+    assert blist.tail.next is None
+    
+    # Długość powinna pozostać bez zmian
+    assert blist.length == 4
